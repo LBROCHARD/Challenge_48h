@@ -11,6 +11,7 @@ body{
  }
  /* Bordered form */
  form {
+  top: auto;
   width:100%;
   padding: 30px;
   border: 1px solid darkgoldenrod;
@@ -53,4 +54,6 @@ body{
   color: black;
   border: 1px solid rgb(199, 107, 20);
  }
- 
+ .select-role{
+  border-radius: 7px;
+ }
