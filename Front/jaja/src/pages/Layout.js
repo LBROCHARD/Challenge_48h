@@ -13,6 +13,7 @@ const Layout = () => {
           <button onClick={() => navigate("/register")}> Register </button>
         </div>
         <div class="title">
+          <img class="jajaImg" src={process.env.PUBLIC_URL + "/jaja.png"} onClick={() => navigate("/home")}/>
           <h1 onClick={() => navigate("/home")}>JAJA</h1>
         </div>
         <div class="profile">
