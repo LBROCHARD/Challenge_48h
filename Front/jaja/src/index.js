@@ -2,7 +2,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from 'react';
 import './index.css';
-import App from './pages/App';
+import Login from './pages/login';
 import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
 import reportWebVitals from './reportWebVitals';
@@ -13,7 +13,7 @@ export default function Index() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="home" element={<p>yes</p>} />
-          <Route path="app" element={<App/>} />
+          <Route path="login" element={<Login/>} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
