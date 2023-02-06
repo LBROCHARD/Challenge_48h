@@ -6,7 +6,7 @@ const login = () => {
       <div class="container">
 
  
- <form action="/home" method="post">
+ <form class="form1" action="/home" method="post">
  <h2>Log In</h2>
  
  <label><b>Username</b></label>
