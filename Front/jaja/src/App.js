@@ -1,7 +1,8 @@
 import logo from './logo.svg';
+import { Outlet, Link } from "react-router-dom";
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +19,8 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <Outlet />
     </div>
   );
 }
