@@ -13,7 +13,7 @@ api.get(
     
 );
 
-api.get("/", isAuthentificatedAndResolveUser, apiControllers.index);
+api.get("/", apiControllers.index);
 api.post("/", isAuthentificatedAndResolveUser,isAuthentificatedAndResolveRoleUser , apiControllers.create);
 api.put("/:id", isAuthentificatedAndResolveUser,isAuthentificatedAndResolveRoleUser , apiControllers.update);
 api.del("/:id", isAuthentificatedAndResolveUser,isAuthentificatedAndResolveRoleUser , apiControllers.destroy);

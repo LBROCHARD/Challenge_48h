@@ -8,9 +8,10 @@ export async function register(ctx) {
     try {
         const registerValidationSchema = Joi.object({
             email: Joi.string().email().required(),
+            nom: Joi.string().required(),
             password: Joi.string().min(6).required(),
             terms_and_conditions: Joi.boolean().valid(true).required(),
-            role: Joi.string().valid("client", "admin").required(),
+            role: Joi.string().valid("client", "admin","commercant").required(),
         });
         const params = ctx.request.body;
         const { error, value } = registerValidationSchema.validate(params);

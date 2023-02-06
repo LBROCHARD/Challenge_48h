@@ -1,4 +1,5 @@
 import ProduitModel from "#components/produit/produit-model.js";
+import apiModel from "#components/api/api-model.js";
 
 
 import Joi from "Joi";
@@ -6,7 +7,9 @@ import Joi from "Joi";
 export async function index(ctx) {
     try {
         const produits = await ProduitModel.find({});
-        ctx.ok(produits);
+        const api = await apiModel.find({});
+        ctx.ok({  api, produits });
+     
     } catch (e) {
         ctx.badRequest({ message: e.message });
     }
@@ -53,6 +56,8 @@ export async function create(ctx) {
         const produitValidationSchema = Joi.object({
             title: Joi.string().required(),
             price: Joi.number().required(),
+            description: Joi.string().required(),
+            image: Joi.string(),
         });
         const { error, value } = produitValidationSchema.validate(
             ctx.request.body
