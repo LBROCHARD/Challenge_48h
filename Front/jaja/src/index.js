@@ -8,7 +8,7 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Card from "./components/Card";
 import reportWebVitals from './reportWebVitals';
-import register from './pages/register';
+import Register from './pages/register';
 
 export default function Index() {
   return (
