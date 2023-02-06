@@ -16,7 +16,7 @@ const Layout = () => {
           <h1 onClick={() => navigate("/home")}>JAJA</h1>
         </div>
         <div class="profile">
-          <h1>Email</h1>
+          <h1 class="email">Email</h1>
           <button onClick={() => navigate("/profile")}> Profile </button>
         </div>
       </div>

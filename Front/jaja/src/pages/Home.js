@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <>
       <h1>Home</h1>
-      <Card src="img" title="bob"/>
+      <Card src="logo512.png" title="bob"/>
     </>
   )
 };

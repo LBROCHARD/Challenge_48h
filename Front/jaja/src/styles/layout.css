@@ -37,3 +37,7 @@ button {
     margin: 5%;
     cursor: pointer;
 }
+
+.email {
+    margin-right: 4px;
+}
