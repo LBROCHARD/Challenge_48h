@@ -1,41 +1,28 @@
-// import { Outlet, Link } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import "../styles/layout.css";
 
 const Layout = () => {
-    return (
-<<<<<<< HEAD
+  
+  let navigate = useNavigate();
+  
+  return (
+    <>
       <div class="header">
-        <div class="title">
-          <h1 >JAJA</h1>
-        </div>
         <div class="buttonHeader">
-          <form action="/Login">
-          <button> Login </button>
-          </form>
-
-          <form action="/Register">
-          <button> Register </button>
-          </form>
+          <button onClick={() => navigate("/login")}> Login </button>
+          <button onClick={() => navigate("/register")}> Register </button>
         </div>
-        <h1 class="email">Email</h1>
-        <form class="a" action="/Profile">
-        <button> Profile </button>
-        </form>
-
-
+        <div class="title">
+          <h1 onClick={() => navigate("/home")}>JAJA</h1>
+        </div>
+        <div class="profile">
+          <h1>Email</h1>
+          <button onClick={() => navigate("/profile")}> Profile </button>
+        </div>
       </div>
-=======
-      <>
-        <h1>LAYOUT</h1>
-        <Link to="/basic">basic</Link>
-        <Link to="/home">home</Link>
-        <Link to="/login">login</Link>
-        <Link to="/register">register</Link>
-
-        <Outlet />
-      </>
->>>>>>> db6f6424041ff6bef07f68b3ac1e3ccbce78f54c
-    )
-  };
+      <Outlet/>
+    </>
+  )
+};
   
 export default Layout;

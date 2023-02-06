@@ -6,6 +6,7 @@ import Login from './pages/login';
 import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 import Card from "./components/Card";
 import reportWebVitals from './reportWebVitals';
 import Register from './pages/register';
@@ -17,8 +18,9 @@ export default function Index() {
         <Route path="/" element={<Layout />}>
           <Route path="home" element={<Home/>} />
           <Route path="login" element={<Login/>} />
-          <Route path="*" element={<NoPage />} />
           <Route path="register" element={<Register/>} />
+          <Route path="profile" element={<Profile/>} />
+          <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
