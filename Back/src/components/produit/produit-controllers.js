@@ -8,7 +8,7 @@ export async function index(ctx) {
     try {
         const produits = await ProduitModel.find({});
         const api = await apiModel.find({});
-        ctx.ok({  api, produits });
+        ctx.ok( produits);
      
     } catch (e) {
         ctx.badRequest({ message: e.message });

@@ -11,8 +11,11 @@ const Card = (props) => {
 
   return (
     <div className="Card" onClick={GoHome}>
+      
       <img src={props.src} />
       <h2>{props.title}</h2>
+      <p>{props.description}</p>
+      <p>{props.price}</p>
     </div>
   )
 };
