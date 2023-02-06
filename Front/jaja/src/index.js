@@ -5,7 +5,8 @@ import './index.css';
 import Login from './pages/login';
 import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
-import reportWebVitals from './reportWebVitals';
+//import reportWebVitals from './reportWebVitals';
+import Register from "./pages/register";
 
 export default function Index() {
   return (
@@ -15,6 +16,7 @@ export default function Index() {
           <Route path="home" element={<p>yes</p>} />
           <Route path="login" element={<Login/>} />
           <Route path="*" element={<NoPage />} />
+          <Route path="register" element={<Register/>} />
         </Route>
       </Routes>
     </BrowserRouter>

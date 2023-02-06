@@ -7,7 +7,7 @@ const login = () => {
 
  
  <form action="/home" method="post">
- <h1>Connexion</h1>
+ <h2>Log In</h2>
  
  <label><b>Username</b></label>
  <input type="text" placeholder="Enter your username" name="username" required></input>
