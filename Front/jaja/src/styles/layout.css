@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.header {
+    background-color: rgb(246, 193, 107);
+    height: 6em;
+}
+
+.title{
+    top:22%;
+    text-align: center;
+    position: relative;
+    left:-25px;
+}
+
+.buttonHeader {
+    display: flex;
+    margin-left: 5%;
+}
+
+button{
+    margin-left: 20px;
+    width: 8em;
+}
+
+.email{
+    top: -1.2em;
+
+    left: 37em;
+    position: relative;
+}
+.a{
+    top:-70px;
+    left: 85%;
+    display: flex;
+    position: relative;
+}
+button{
+    background-color: initial;
+    background-image: linear-gradient(-180deg, #BFA730, #D9A648);
+    /* Green */
+    border: none;
+    color: white;
+    height: 25px;
+    border-radius: 8px;
+}
