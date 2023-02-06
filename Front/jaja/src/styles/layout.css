@@ -19,7 +19,7 @@
     margin-left: 5%;
 }
 
-button{
+.button1{
     margin-left: 20px;
     width: 8em;
 }
@@ -36,7 +36,7 @@ button{
     display: flex;
     position: relative;
 }
-button{
+.button1{
     background-color: initial;
     background-image: linear-gradient(-180deg, #BFA730, #D9A648);
     /* Green */
