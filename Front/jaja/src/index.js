@@ -10,6 +10,7 @@ import Profile from "./pages/Profile";
 import Card from "./components/Card";
 import reportWebVitals from './reportWebVitals';
 import Register from './pages/register';
+// const { id } = useParams()
 
 export default function Index() {
   return (
@@ -20,6 +21,9 @@ export default function Index() {
           <Route path="login" element={<Login/>} />
           <Route path="register" element={<Register/>} />
           <Route path="profile" element={<Profile/>} />
+          <Route path="product" element={<p>product</p>}>
+            <Route path=":id" element={ <p> yes </p>}/>
+          </Route>
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
