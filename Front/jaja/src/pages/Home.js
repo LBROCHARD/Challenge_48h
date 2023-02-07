@@ -1,32 +1,19 @@
 import Card from "../components/Card"
-import React,{ useEffect, useState } from "react";
-import axios from "axios";
+import product from "../pages/product"
+import { Outlet, useNavigate } from "react-router-dom";
+
+
 const Home = () => {
-  
-  const [produits, setProduits] = useState([]);
-  const getProduct = () => {
-  axios.get(`http://localhost:5002/api/v1/produits`)
-      .then(res => {
-        const produits = res.data;
-        setProduits(produits);
-        console.log(produits)
-      })
-      
-    }
-      useEffect(() => {
-        getProduct();
-    }, []);
+  let navigate = useNavigate();
   return (
     <>
       <h1>Home</h1>
-     {produits.map((produit)=> (
-      <div key={produit._id}>
+      <div className="cardsDiv">
       
-      <Card  src={produit.image}  title={produit.title} description={produit.description} price={produit.price} /></div>
-     ))}
-     
-     
-      
+        <Card src="logo512.png" title="produit 1" id="product/1"/>
+        <Card src="logo512.png" title="produit 2" id="product/2"/>
+        <Card src="logo512.png" title="produit 3" id="product/3"/>
+      </div>
     </>
   )
 };

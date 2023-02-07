@@ -1,6 +1,4 @@
-body{
-  background: wheat;
- }
+
  .container{
   
   width:400px;
@@ -10,7 +8,7 @@ body{
   
  }
  /* Bordered form */
- form {
+ .form1 {
   width:100%;
   padding: 30px;
   border: 1px solid darkgoldenrod;
