@@ -14,11 +14,12 @@ const Login = () => {
     const data = {
         email: mail,
         password: pwd,
-        
     }     
     axios.post(`http://localhost:5002/api/v1/users/login`, data)
     .then((res) => {
+      const token = res.data.activeToken;
         alert("Connection Successfull");
+        localStorage.setItem("token", token);
         navigate("/home");
     })
     .catch((err) => {
