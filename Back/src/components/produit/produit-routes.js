@@ -8,11 +8,7 @@ import {
 
 const produit = new Router();
 
-produit.get(
-    "/mylists",
-    isAuthentificatedAndResolveUser,
-    produitControllers.getMyLists
-);
+
 produit.get("/:id", produitControllers.id);
 produit.get("/", produitControllers.index);
 produit.post("/", isAuthentificatedAndResolveUser,isAuthentificatedAndResolveRoleUser , produitControllers.create);

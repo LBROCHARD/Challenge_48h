@@ -137,7 +137,11 @@ const Profile = () => {
         <h1 className="userName">Shop : {user.user}</h1>
         <p className="userMail"> Email : {user.email} </p>
         <p className="userRole"> Role : {user.role} </p>
-        <button className="profileBtn"> add product </button>
+        <input value={title}type="text" className="profileInpt" onChange={(e) => setTitle(e.target.value)} placeholder="Title"/>
+        <input value={description} type="text" className="profileInpt" onChange={(e) => setDescription(e.target.value)} placeholder="Description"/>
+        <input value={price} type="text" className="profileInpt" onChange={(e) => setPrice(e.target.value)} placeholder="Price"/>
+        <input value={image} type="text" className="profileInpt" onChange={(e) => setImage(e.target.value)} placeholder="Image"/>
+        <button onClick={addProduct}  className="profileBtn"> add product </button>
       </div>
     )
   }
@@ -151,6 +155,22 @@ const Profile = () => {
       </div>
     )
   }
+  const [title, setTitle] = useState([]);
+  const [description, setDescription] = useState([]);
+  const [price, setPrice] = useState([]);
+  const [image, setImage] = useState([]);
+  const addProduct = () => {
+    const data = {
+      title: title,
+      description: description,
+      price: price,
+      image: image,
+    }
+    axios.post(`http://localhost:5002/api/v1/produits`, data, config)
+    .then( () => {
+      alert("Successful added product");
+      navigate("/profile")})}
+
 
   return (
     <>
