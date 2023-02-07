@@ -35,10 +35,10 @@ const Login = () => {
  <h2>Log In</h2>
  
  <label><b>Email</b></label>
- <input type="text" onChange={(e) => setMail(e.target.value)} placeholder="Enter your email" name="email" required></input>
+ <input className="input" type="text" onChange={(e) => setMail(e.target.value)} placeholder="Enter your email" name="email" required></input>
 
  <label><b>Password</b></label>
- <input type="password" onChange={(e) => setPwd(e.target.value)}placeholder="Enter your password" name="password" required></input>
+ <input className="input" type="password" onChange={(e) => setPwd(e.target.value)}placeholder="Enter your password" name="password" required></input>
 
  <button onClick={handleLogin}>LOGIN</button>
  

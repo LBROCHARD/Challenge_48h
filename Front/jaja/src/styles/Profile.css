@@ -1,0 +1,66 @@
+.profileDiv {
+    background-color: white;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+    padding: 3%;
+    border-radius: 10px;
+    box-shadow: 5px 10px 5px 1px rgba(54, 54, 54, 0.2);
+    min-height: 200px;
+}
+
+.userName {
+    font-size: 60px;
+}
+
+.adminName {
+    font-size: 60px;
+    color: red;
+}
+
+.userMail {
+    font-size: 20px;
+    margin-top: 3%;
+}
+
+.userRole {
+    font-size: 20px;
+    margin-top: 1%;
+}
+
+.profileBtn {
+    margin: 0;
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+    margin-top: 3%;
+    margin-right: 5%;
+}
+
+.hr {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.apiTitle {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+li {
+    margin-left: 5%;
+}
+
+.btnDiv {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.profileInpt {
+    width: 600px;
+    height: 30px;
+    margin-top: 3%;
+    margin-right: 3%;
+}

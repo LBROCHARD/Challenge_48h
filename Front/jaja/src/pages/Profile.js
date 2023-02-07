@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 const Profile = () => {
 
+  const [checkToken, setCheckToken]=useState(false);
   const JWT = localStorage.getItem("token");
   let navigate = useNavigate();
 
@@ -13,13 +14,6 @@ const Profile = () => {
     headers: {
       Authorization: `Bearer ${JWT}`,
     }
-  };
-  const verifyToken = () => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      return true;
-    }
-    return false;
   };
 
   const [user, setUser] = useState({});
@@ -32,52 +26,96 @@ const Profile = () => {
     });
   }
 
+  const [api, setApi] = useState({});
+
+  const getApi = () => {
+    axios.get(`http://localhost:5002/api/v1/api/`, config).then((res) => {
+      const api = res.data;
+      setApi(api)
+      console.log(api);
+    });
+  }
+
   function logout() {
     localStorage.removeItem("token");
     navigate("/login");
   }
 
-  function UserProfile(props) {
-    return (
-      <div>
-        <p>basic user</p>
-      </div>
-    );
-  }
-
-  function SellerProfile(props) {
-    return (
-      <div>
-        <p>seller user</p>
-      </div>
-    );
-  }
-
-  function AdminProfile(props) {
-    return (
-      <div>
-        <p>admin user</p>
-      </div>
-    );
-  }
-
-  const Profile = (props) => {
+  useEffect(()=> {
     getUser()
-    if (verifyToken()) {
-      if(user.role == "admin"){
-        return <AdminProfile/>;
-      } else if (user.role == "commercant"){
-        return <SellerProfile/>;
-      } else {
-        return <UserProfile/>;
-      }
-    }
-    return () => logout;
+    getApi()
+    setCheckToken( localStorage.getItem("token"))
+  }, [])
+
+  const [newApi, setNewApi] = useState("");
+
+  const handleNewApi = () => {
+    const data = {
+      url: newApi,
+    }     
+    axios.post(`http://localhost:5002/api/v1/api`, data, config)
+    .catch((err) => {
+      alert("Connection Failed");
+    });
+  };
+
+  const Admin = () => {
+    return (
+      <div className="profileDiv">
+        <h1 className="adminName">ADMIN USER : {user.user}</h1>
+        <p className="userMail"> Email : {user.email} </p>
+        <p className="userRole"> Role : {user.role} </p>
+        <hr className="hr"/>
+        <p className="apiTitle"> Linked API : </p>
+        <ul>
+          { api.map((ap)=> (
+            <li key={ap._id}> {ap.url} </li>
+          ))}
+        </ul>
+        <div className="btnDiv">
+          <input value={newApi} type="text" className="profileInpt" onChange={(e) => setNewApi(e.target.value)} placeholder="API URL"/>
+          <button className="profileBtn" onClick={handleNewApi} > add api </button>
+        </div>
+        <button className="profileBtn" onClick={handleNewApi} > add product </button>
+      </div>
+    )
+  }
+
+  const Seller = () => {
+    return (
+      <div className="profileDiv">
+        <h1 className="userName">Shop : {user.user}</h1>
+        <p className="userMail"> Email : {user.email} </p>
+        <p className="userRole"> Role : {user.role} </p>
+        <button className="profileBtn"> add product </button>
+      </div>
+    )
+  }
+
+  const User = () => {
+    return (
+      <div className="profileDiv">
+        <h1 className="userName">{user.user}</h1>
+        <p className="userMail"> Email : {user.email} </p>
+        <p className="userRole"> Role : {user.role} </p>
+      </div>
+    )
   }
 
   return (
     <>
-      <Profile/>
+      {checkToken && user.role ==="admin" &&
+        <Admin/>
+      }
+      {checkToken && user.role ==="commercant" &&
+        <Seller/>
+      }
+      {checkToken && user.role ==="client" &&
+        <User/>
+      }
+      {!checkToken || user.role ===!"admin" && user.role ===!"commercant" && user.role ===!"user" &&
+        logout
+      }
     </>
   )
 };

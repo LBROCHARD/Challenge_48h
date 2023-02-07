@@ -11,7 +11,6 @@ import Product from "./pages/product";
 import Card from "./components/Card";
 import reportWebVitals from './reportWebVitals';
 import Register from './pages/register';
-// const { id } = useParams()
 
 export default function Index() {
   return (

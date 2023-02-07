@@ -42,13 +42,13 @@ const Register = () => {
  <h2>Register</h2>
  <div className='form'>
  <label><b>Email</b></label>
- <input type="text" onChange={(e) => setMail(e.target.value)} placeholder="Enter your email" name="email" required></input>
+ <input className="input" type="text" onChange={(e) => setMail(e.target.value)} placeholder="Enter your email" name="email" required></input>
 
  <label><b>Name</b></label>
- <input type="text" onChange={(e) => setName(e.target.value)} placeholder="Enter your name" name="name" required></input>
+ <input className="input"  type="text" onChange={(e) => setName(e.target.value)} placeholder="Enter your name" name="name" required></input>
 
  <label><b>Password</b></label>
- <input type="password" onChange={(e) => setPwd(e.target.value)} placeholder="Enter your password" name="password" required></input>
+ <input className="input"  type="password" onChange={(e) => setPwd(e.target.value)} placeholder="Enter your password" name="password" required></input>
 
  <label htmlFor="pet-select"><b>Choose a role: </b></label>
 
