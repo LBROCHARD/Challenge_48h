@@ -36,6 +36,18 @@ export async function register(ctx) {
     }
 }
 
+export async function id(ctx) {
+    try {
+        if (!ctx.params.id) throw new Error("No id supplied");
+        const produit = await UserModel.findOne({_id: ctx.params.id});
+        if (!produit) {
+            return ctx.notFound();
+        }
+        ctx.ok(produit);
+    } catch (e) {
+        ctx.badRequest({ message: e.message });
+    }
+}
 
 export async function login (ctx) {
   try {
