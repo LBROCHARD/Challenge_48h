@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Card from "./components/Card";
 import reportWebVitals from './reportWebVitals';
 import Register from './pages/register';
+import Product from "./pages/product";
 
 export default function Index() {
   return (
@@ -19,6 +20,8 @@ export default function Index() {
           <Route path="login" element={<Login/>} />
           <Route path="*" element={<NoPage />} />
           <Route path="register" element={<Register/>} />
+          <Route path="product" element={<Product/>} />
+
         </Route>
       </Routes>
     </BrowserRouter>

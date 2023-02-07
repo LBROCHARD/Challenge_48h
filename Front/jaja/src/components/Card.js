@@ -5,12 +5,12 @@ const Card = (props) => {
 
   let navigate = useNavigate();
 
-  function GoHome(){
-    navigate("/{props.id}")
+  function GoProduct(){
+    navigate("/product")
   }
 
   return (
-    <div className="Card" onClick={GoHome}>
+    <div className="Card" onClick={GoProduct}>
       <img src={props.src} />
       <h2>{props.title}</h2>
     </div>

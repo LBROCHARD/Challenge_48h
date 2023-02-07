@@ -1,0 +1,26 @@
+.chien{
+  width: 300px;
+  height: auto;
+  border-radius: 7px;
+
+}
+
+.Id{
+  margin-left: 115px;
+}
+
+.div1{
+  background-color: gold;
+  margin-left: 200px;
+  margin-right: 200px;
+  height: 600px;
+  border-radius: 7px;
+}
+
+.explain{
+  margin-top: 20px;
+}
+
+.seller{
+  margin-top: 50px;
+}
