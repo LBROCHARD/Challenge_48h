@@ -23,7 +23,7 @@ const Layout = () => {
       </div>
       <Outlet/>
       <div className="footer">
-        <p>Java Jaguars™ JaJa® - aucuns droits reservés</p>
+        <p>Java Jaguars™ JaJa® - aucun droit reservé</p>
       </div>
     </>
   )

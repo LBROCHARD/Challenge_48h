@@ -1,27 +1,41 @@
 import "../styles/product.css";
-import image from "../pictures/titus.png";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+
 const Product = () => {
-    return (
-      <body>
-      <div className="div1">
+    
+  const id = window.location.pathname.replace('/product/', '');
+  const url = "http://localhost:5002/api/v1/produits/" + id;
 
+  const [produit, setProduit] = useState([]);
+  
+  const getProduct = () => {
+      console.log(url)
+      axios.get(url)
+      .then(res => {
+        const produit = res.data;
+        setProduit(produit);
+        console.log(produit)
+      })
+  }
 
-        <h1 className="Id">Dog</h1>
+  useEffect(() => {
+    getProduct();
+  }, []);
+  
+  return (
+      <>
+        <div className="div1">
 
-        <img className="chien" src={image}/>
-
-        <p className="explain">Le chien est un mammifère de la famille des canidés. C'est la première espèce animale à avoir été domestiquée par l'homme dans le but de la chasse.
-
-        La taille et le poids des chiens varie énormément d'une race à l'autre. Par exemple, le chihuahua peut peser environ 1 kg pour 16 cm tandis qu'un dogue allemand peut peser 90 kg pour 72 cm.</p>
-        <p className="seller">DOGG SELLER: <b>JEAN PATRIQUE</b></p>
-
-        <p>Price: <b>52.36$</b></p>
-      </div>
-
-
-      </body>
+          <h1 className="Id">{produit.title}</h1>
+          <img className="prodImg" src={produit.image}/>
+          <p className="explain">{produit.description}</p>
+          <p className="seller"><b>{produit.user}</b></p>
+          <p>Price: <b>{produit.price}$</b></p>
+        </div>
+      </>
     )
 };
   
-export default Product
-;
+export default Product;

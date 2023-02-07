@@ -6,19 +6,22 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   let navigate = useNavigate();
+
   const [produits, setProduits] = useState([]);
+
   const getProduct = () => {
-  axios.get(`http://localhost:5002/api/v1/produits`)
-      .then(res => {
-        const produits = res.data;
-        setProduits(produits);
-        console.log(produits)
-      })
-      
-    }
-      useEffect(() => {
-        getProduct();
-    }, []);
+    axios.get(`http://localhost:5002/api/v1/produits`)
+    .then(res => {
+      const produits = res.data;
+      setProduits(produits);
+      console.log(produits)
+    })
+  }
+
+  useEffect(() => {
+    getProduct();
+  }, []);
+
   return (
     <>
       <h1>Home</h1>

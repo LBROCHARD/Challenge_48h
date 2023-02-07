@@ -18,10 +18,7 @@ export async function index(ctx) {
 export async function id(ctx) {
     try {
         if (!ctx.params.id) throw new Error("No id supplied");
-        const produit = await ProduitModel.verifyUserId(
-            ctx.state.user.id,
-            ctx.params.id
-        );
+        const produit = await ProduitModel.findOne({_id: ctx.params.id});
         if (!produit) {
             return ctx.notFound();
         }

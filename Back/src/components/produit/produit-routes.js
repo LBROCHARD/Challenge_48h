@@ -13,7 +13,7 @@ produit.get(
     isAuthentificatedAndResolveUser,
     produitControllers.getMyLists
 );
-produit.get("/:id", isAuthentificatedAndResolveUser, produitControllers.id);
+produit.get("/:id", produitControllers.id);
 produit.get("/", produitControllers.index);
 produit.post("/", isAuthentificatedAndResolveUser,isAuthentificatedAndResolveRoleUser , produitControllers.create);
 produit.put("/:id", isAuthentificatedAndResolveUser,isAuthentificatedAndResolveRoleUser , produitControllers.update);
