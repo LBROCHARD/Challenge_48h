@@ -9,5 +9,6 @@ users.put("/:id", isAuthentificatedAndResolveUser, UserControllers.update);
 users.get("/me", isAuthentificatedAndResolveUser, (ctx) => {
     ctx.ok({ user: ctx.state.user.nom, email: ctx.state.user.email, role: ctx.state.user.role, id: ctx.state.user.id});
 });
+users.get("/get/:id",UserControllers.index);
 
 export default users;

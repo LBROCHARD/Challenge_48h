@@ -14,11 +14,6 @@ const Product = () => {
       headers: {
           Authorization: `Bearer ${JWT}`,
       }};
-   const [idUser, setIdUser] = useState("");
-  axios.get(`http://localhost:5002/api/v1/users/me`, config).then((res) => {
-    const user = res.data.id;
-    setIdUser(user)});
-    
   const navigate = useNavigate();
   const [produit, setProduit] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState("");
@@ -66,7 +61,7 @@ const Product = () => {
             <p>description :</p>
             <p className="explain">{produit.description}</p>
             <p> vendu par :</p>
-            <p className="seller"><b>{produit.user}</b></p>
+            <p className="seller"><b>{produit.username}</b></p>
             <p className="money">Price: <b>{produit.price}$</b></p>
             <button onClick={handleBuy} className="buy"> BUY ! </button>
           </div>

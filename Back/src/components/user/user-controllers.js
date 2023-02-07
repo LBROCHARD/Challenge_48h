@@ -83,3 +83,19 @@ export async function update(ctx) {
         ctx.badRequest({ message: e.message });
     }
 }
+
+export async function index(ctx) {
+    
+    try {
+        if (!ctx.params.id) throw new Error("No id supplied");
+        const produits = await  UserModel.findByUserId({_id:ctx.params.id})
+        if (!produits) {
+            return ctx.notFound();
+        }
+        
+        ctx.ok( produits);
+     
+    } catch (e) {
+        ctx.badRequest({ message: e.message });
+    }
+}

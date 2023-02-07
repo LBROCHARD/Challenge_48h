@@ -63,6 +63,7 @@ export async function create(ctx) {
         const newProduit = await ProduitModel.create({
             ...value,
             user: ctx.state.user.id,
+            username: ctx.state.user.nom,
         });
         ctx.ok(newProduit);
     } catch (e) {

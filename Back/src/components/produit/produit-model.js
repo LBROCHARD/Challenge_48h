@@ -24,6 +24,11 @@ const produitSchema = new Schema({
         required: true,
         ref: "User",
     },
+    username: {
+        type: Schema.Types.String,
+        required: true,
+        ref: "User",
+    },
 }, {
     timestamps: true,
 });

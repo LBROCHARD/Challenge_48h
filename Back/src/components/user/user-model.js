@@ -42,8 +42,15 @@ const userSchema = new Schema({
 }, {
     timestamps: true,
 });
-
+userSchema.static({
+    findByUserId(userId) {
+        return this.findOne({ user: userId });
+    },
+    
+});
 userSchema.method({
+
+        
     generateEmailVerificationToken() {
         const token = customAlphabet(numbers, 5)();
         this.settings.validation_email_token = token;

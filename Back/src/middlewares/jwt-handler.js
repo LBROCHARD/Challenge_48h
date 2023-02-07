@@ -19,7 +19,7 @@ export const resolveRoleUser = async (ctx, next) => {
     try {
     const user = await UserModel.findById(ctx.state.user.id)
     ctx.state.user = user.role
-    if(user.role !== 'admin') throw new Error('You are not admin')
+    if(user.role != 'admin' && user.role!='commercant') throw new Error('You don\'t have the right to do this')
     ctx.state.user = user
         return next()
     
