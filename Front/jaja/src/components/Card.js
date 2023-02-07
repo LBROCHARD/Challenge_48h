@@ -5,14 +5,14 @@ const Card = (props) => {
 
   let navigate = useNavigate();
 
-  function GoProduct(){
-    navigate("/product")
+  function GoHome(){
+    navigate("/" + props.id)
   }
 
   return (
-    <div className="Card" onClick={GoProduct}>
-      <img src={props.src} />
-      <h2>{props.title}</h2>
+    <div className="Card" onClick={GoHome}>
+      <img className="CardImg" src={props.src} />
+      <h2 className="CardTitle">{props.title}</h2>
     </div>
   )
 };

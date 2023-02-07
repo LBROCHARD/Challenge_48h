@@ -1,18 +1,29 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import "../styles/layout.css";
 
 const Layout = () => {
-    return (
-      <>
-        <h1>LAYOUT</h1>
-        <Link to="/basic">basic</Link>
-        <Link to="/home">home</Link>
-        <Link to="/login">login</Link>
-        <Link to="/register">register</Link>
-
-        <Outlet />
-      </>
-    )
-  };
+  
+  let navigate = useNavigate();
+  
+  return (
+    <>
+      <div class="header">
+        <div class="buttonHeader">
+          <button onClick={() => navigate("/login")}> Login </button>
+          <button onClick={() => navigate("/register")}> Register </button>
+        </div>
+        <div class="title">
+          <img class="jajaImg" src={process.env.PUBLIC_URL + "/jaja.png"} onClick={() => navigate("/home")}/>
+          <h1 onClick={() => navigate("/home")}>JAJA</h1>
+        </div>
+        <div class="profile">
+          <h1 class="email">Email</h1>
+          <button onClick={() => navigate("/profile")}> Profile </button>
+        </div>
+      </div>
+      <Outlet/>
+    </>
+  )
+};
   
 export default Layout;
