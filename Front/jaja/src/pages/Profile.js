@@ -26,13 +26,47 @@ const Profile = () => {
     });
   }
 
-  const [api, setApi] = useState({});
+  const [api, setApi] = useState([]);
 
   const getApi = () => {
     axios.get(`http://localhost:5002/api/v1/api/`, config).then((res) => {
       const api = res.data;
       setApi(api)
       console.log(api);
+    });
+  }
+
+  const [orders, setOrders] = useState([]);
+  const [cleanOrders, setCleanOrders] = useState([]);
+
+  const getOrders = () => {
+    axios.get(`http://localhost:5002/api/v1/orders/myorders`, config)
+    .then((res) => {
+      const ordersTemp = res.data;
+      console.log(ordersTemp);
+      const arr = [];
+      setOrders(ordersTemp)
+      // ordersTemp.forEach(order => {
+      //   var tg = "http://localhost:5002/api/v1/users/" + order._id
+      //   axios.get(tg)
+      //   .then((res) => {
+      //     // arr.push( {name: res.data.nom, id: res.data._id } )
+      //     console.log(res.data.nom);
+      //   });
+      // });
+      // setCleanOrders(arr)
+    });
+  }
+  
+  const [userName, setUserName] = useState([]);
+
+  const getUserName = (id) => {
+    console.log("http://localhost:5002/api/v1/users/" + id)
+    axios.get("http://localhost:5002/api/v1/users/" + id).then((res) => {
+      const userName = res.data.name;
+      // setUserName(userName)
+      console.log("yes" + userName);
+      return userName;
     });
   }
 
@@ -44,6 +78,7 @@ const Profile = () => {
   useEffect(()=> {
     getUser()
     getApi()
+    getOrders()
     setCheckToken( localStorage.getItem("token"))
   }, [])
 
@@ -54,6 +89,10 @@ const Profile = () => {
       url: newApi,
     }     
     axios.post(`http://localhost:5002/api/v1/api`, data, config)
+    .then( () => {
+      alert("Successful added api");
+      navigate("/home");
+    })
     .catch((err) => {
       alert("Connection Failed");
     });
@@ -76,7 +115,18 @@ const Profile = () => {
           <input value={newApi} type="text" className="profileInpt" onChange={(e) => setNewApi(e.target.value)} placeholder="API URL"/>
           <button className="profileBtn" onClick={handleNewApi} > add api </button>
         </div>
-        <button className="profileBtn" onClick={handleNewApi} > add product </button>
+        <hr className="hr"/>
+        <p className="apiTitle"> Orders : </p>
+        {/* <ul>
+          { orders.map((order)=> (
+            <li key={order.id}> {order._id} </li>
+          ))}
+        </ul> */}
+        <ul>
+          { orders.map((order)=> (
+            <li key={order.id}> {order._id} </li>
+          ))}
+        </ul>
       </div>
     )
   }

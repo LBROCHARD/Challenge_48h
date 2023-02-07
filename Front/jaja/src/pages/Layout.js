@@ -17,8 +17,8 @@ const Layout = () => {
       };
   const [name, setName] = useState("");
   axios.get(`http://localhost:5002/api/v1/users/me`, config).then((res) => {
-    const user = res.data.user;
-    setName(user)});
+    const usert = res.data.user;
+    setName(usert)});
   let navigate = useNavigate();
   function logout() {
     localStorage.removeItem("token");
