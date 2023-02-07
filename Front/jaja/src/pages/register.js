@@ -59,7 +59,7 @@ const Register = () => {
 </select>
 <br></br>
 <label htmlFor="terms">  Accept terms and conditions</label>
-<input type="checkbox" id="terms" onChange={(e) => setTerms(e.target.checked)}/>
+<input type="checkbox" id="terms" onChange={(e) => setTerms(e.target.checked)}required/>
 
  <button  onClick={handleSubmit} id='submit'>REGISTER</button>
  </div>

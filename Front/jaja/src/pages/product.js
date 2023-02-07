@@ -1,7 +1,7 @@
 import "../styles/product.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 
 const Product = () => {
     
@@ -9,7 +9,20 @@ const Product = () => {
   const url = "http://localhost:5002/api/v1/produits/" + id;
   const urlSeller = "http://localhost:5002/api/v1/users/" + id;
 
+  const JWT = localStorage.getItem("token");
+  const config = {
+      headers: {
+          Authorization: `Bearer ${JWT}`,
+      }};
+   const [idUser, setIdUser] = useState("");
+  axios.get(`http://localhost:5002/api/v1/users/me`, config).then((res) => {
+    const user = res.data.id;
+    setIdUser(user)});
+    
+  const navigate = useNavigate();
   const [produit, setProduit] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState("");
+  
   
   const getProduct = () => {
       console.log(url)
@@ -18,8 +31,24 @@ const Product = () => {
         const produit = res.data;
         setProduit(produit);
         console.log(produit)
+        setSelectedProduct(produit._id)
       })
   }
+  const handleBuy = () => {
+    const data = {
+        produit: selectedProduct,
+    }     
+    axios.post(`http://localhost:5002/api/v1/orders`, data,config)
+    .then((res) => {
+      
+        alert("Successful purchase");
+        
+        navigate("/home");
+    })
+    .catch((err) => {
+        alert("Purchase Failed");
+    });
+};
 
   useEffect(() => {
     getProduct();
@@ -29,6 +58,7 @@ const Product = () => {
       <>
         <div className="mainDiv">
           <div className="div1">
+            <input className="hidden" type="text" readOnly={selectedProduct}></input>
             <h1 className="prodTitle">{produit.title}</h1>
             <img className="prodImg" src={produit.image}/>
           </div>
@@ -38,7 +68,7 @@ const Product = () => {
             <p> vendu par :</p>
             <p className="seller"><b>{produit.user}</b></p>
             <p className="money">Price: <b>{produit.price}$</b></p>
-            <button className="buy"> BUY ! </button>
+            <button onClick={handleBuy} className="buy"> BUY ! </button>
           </div>
         </div>
       </>

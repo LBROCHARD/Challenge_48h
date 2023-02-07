@@ -7,7 +7,7 @@ users.post("/register", UserControllers.register);
 users.post("/login", UserControllers.login);
 users.put("/:id", isAuthentificatedAndResolveUser, UserControllers.update);
 users.get("/me", isAuthentificatedAndResolveUser, (ctx) => {
-    ctx.ok({ user: ctx.state.user.nom, email: ctx.state.user.email, role: ctx.state.user.role});
+    ctx.ok({ user: ctx.state.user.nom, email: ctx.state.user.email, role: ctx.state.user.role, id: ctx.state.user.id});
 });
 
 export default users;
