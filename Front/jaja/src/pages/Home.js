@@ -23,14 +23,11 @@ const Home = () => {
     <>
       <h1>Home</h1>
       
-      
-      {produits.map((produit)=> (
-      <div className="cardsDiv" key={produit._id}>
-      
-      <Card  src={produit.image}  title={produit.title} description={produit.description} price={produit.price} /></div>
-     ))}
-
-      
+      <div className="cardsDiv">
+        {produits.map((produit)=> (
+          <Card key={produit._id} id={produit._id} src={produit.image}  title={produit.title} description={produit.description} price={produit.price} />
+        ))}
+      </div>
     </>
   )
 };
