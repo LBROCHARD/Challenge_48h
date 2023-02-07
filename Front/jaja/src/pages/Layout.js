@@ -7,17 +7,17 @@ const Layout = () => {
   
   return (
     <>
-      <div class="header">
-        <div class="buttonHeader">
+      <div className="header">
+        <div className="buttonHeader">
           <button onClick={() => navigate("/login")}> Login </button>
           <button onClick={() => navigate("/register")}> Register </button>
         </div>
-        <div class="title">
-          <img class="jajaImg" src={process.env.PUBLIC_URL + "/jaja.png"} onClick={() => navigate("/home")}/>
+        <div className="title">
+          <img className="jajaImg" src={process.env.PUBLIC_URL + "/jaja.png"} onClick={() => navigate("/home")}/>
           <h1 onClick={() => navigate("/home")}>JAJA</h1>
         </div>
-        <div class="profile">
-          <h1 class="email">Email</h1>
+        <div className="profile">
+          <h1 className="email">Email</h1>
           <button onClick={() => navigate("/profile")}> Profile </button>
         </div>
       </div>

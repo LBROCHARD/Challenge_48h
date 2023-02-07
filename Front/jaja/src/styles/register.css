@@ -10,7 +10,7 @@ body{
   
  }
  /* Bordered form */
- form {
+ .form {
   top: auto;
   width:100%;
   padding: 30px;
