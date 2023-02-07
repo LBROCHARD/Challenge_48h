@@ -6,7 +6,7 @@ const Card = (props) => {
   let navigate = useNavigate();
 
   function GoHome(){
-    navigate("/{props.id}")
+    navigate("/{props._id}")
   }
 
   return (
