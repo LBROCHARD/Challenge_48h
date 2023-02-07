@@ -13,7 +13,7 @@ const Card = (props) => {
     <div className="Card" onClick={GoHome}>
       <img className="CardImg" src={props.src} />
       <h2 className="CardTitle">{props.title}</h2>
-      <p>{props.price}</p>
+      <p>{props.price} €</p>
 
     </div>
   )
