@@ -6,7 +6,7 @@ const Layout = () => {
   let navigate = useNavigate();
   
   return (
-    <>
+    <div className="mainBody">
       <div className="header">
         <div className="buttonHeader">
           <button onClick={() => navigate("/login")}> Login </button>
@@ -21,11 +21,13 @@ const Layout = () => {
           <button onClick={() => navigate("/profile")}> Profile </button>
         </div>
       </div>
-      <Outlet/>
+      <div className="content">
+        <Outlet/>
+      </div>
       <div className="footer">
         <p>Java Jaguars™ JaJa® - aucun droit reservé</p>
       </div>
-    </>
+    </div>
   )
 };
   

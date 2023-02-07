@@ -7,6 +7,7 @@ const Product = () => {
     
   const id = window.location.pathname.replace('/product/', '');
   const url = "http://localhost:5002/api/v1/produits/" + id;
+  const urlSeller = "http://localhost:5002/api/v1/users/" + id;
 
   const [produit, setProduit] = useState([]);
   
@@ -26,13 +27,19 @@ const Product = () => {
   
   return (
       <>
-        <div className="div1">
-
-          <h1 className="Id">{produit.title}</h1>
-          <img className="prodImg" src={produit.image}/>
-          <p className="explain">{produit.description}</p>
-          <p className="seller"><b>{produit.user}</b></p>
-          <p>Price: <b>{produit.price}$</b></p>
+        <div className="mainDiv">
+          <div className="div1">
+            <h1 className="prodTitle">{produit.title}</h1>
+            <img className="prodImg" src={produit.image}/>
+          </div>
+          <div className="div2">
+            <p>description :</p>
+            <p className="explain">{produit.description}</p>
+            <p> vendu par :</p>
+            <p className="seller"><b>{produit.user}</b></p>
+            <p className="money">Price: <b>{produit.price}$</b></p>
+            <button className="buy"> BUY ! </button>
+          </div>
         </div>
       </>
     )

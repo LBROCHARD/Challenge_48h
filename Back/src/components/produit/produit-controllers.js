@@ -74,8 +74,9 @@ export async function update(ctx) {
     try {
         const produitValidationSchema = Joi.object({
             title: Joi.string().required(),
-            description: Joi.string(),
-            done: Joi.boolean(),
+            price: Joi.number().required(),
+            description: Joi.string().required(),
+            image: Joi.string(),
         });
         if (!ctx.params.id) throw new Error("No id supplied");
         const { error, value } = produitValidationSchema.validate(
