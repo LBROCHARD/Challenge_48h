@@ -27,11 +27,11 @@ const Register = () => {
       }     
       axios.post(`http://localhost:5002/api/v1/users/register`, data)
       .then((res) => {
-          alert("Inscription réussie");
+          alert("Registration successful");
           navigate("/login");
       })
       .catch((err) => {
-          alert("Inscription échouée");
+          alert("Registration failed");
       });
 };
   return (

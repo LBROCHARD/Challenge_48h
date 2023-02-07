@@ -1,26 +1,50 @@
 import '../styles/login.css';
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
-const login = () => {
+const Login = () => {
+
+  const [mail, setMail] = useState("");
+  console.log("mail : " + mail);
+  const [pwd, setPwd] = useState("");
+  console.log("pass : " + pwd);
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    const data = {
+        email: mail,
+        password: pwd,
+        
+    }     
+    axios.post(`http://localhost:5002/api/v1/users/login`, data)
+    .then((res) => {
+        alert("Connection Successfull");
+        navigate("/home");
+    })
+    .catch((err) => {
+        alert("Connection Failed");
+    });
+};
   return (
     <div className="login">
-      <div class="container">
+      <div className="container">
 
  
- <form class="form1" action="/home" method="post">
+ <div className="form1">
  <h2>Log In</h2>
  
- <label><b>Username</b></label>
- <input type="text" placeholder="Enter your username" name="username" required></input>
+ <label><b>Email</b></label>
+ <input type="text" onChange={(e) => setMail(e.target.value)} placeholder="Enter your email" name="email" required></input>
 
  <label><b>Password</b></label>
- <input type="password" placeholder="Enter your password" name="password" required></input>
+ <input type="password" onChange={(e) => setPwd(e.target.value)}placeholder="Enter your password" name="password" required></input>
 
- <input type="submit" id='submit' value='LOGIN' ></input>
+ <button onClick={handleLogin}>LOGIN</button>
  
- </form>
+ </div>
  </div>
     </div>
   );
 }
 
-export default login;
+export default Login;
